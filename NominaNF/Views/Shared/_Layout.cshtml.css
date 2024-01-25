@@ -46,3 +46,11 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+/*
+.navbar-nav {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+    */

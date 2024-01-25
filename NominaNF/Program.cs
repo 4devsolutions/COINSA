@@ -1,7 +1,13 @@
+using NominaNF.Models;
+using NominaNF.Repositorios.Contrato;
+using NominaNF.Repositorios.Implementacion;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IGenericRepository<Proyecto>, ProyectoRepository>();
 
 var app = builder.Build();
 
@@ -22,6 +28,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=home}/{action=Index}/{id?}");
 
 app.Run();

@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Proyecto";
+}
+
+<div class="row justify-content-center">
+    <div class="col-10">
+
+        <div class="alert alert-info" role="alert">
+           Catalogo Proyecto!
+        </div>
+
+        <button type="button" class="btn btn-success btn-sm boton-nuevo-proyecto">Nuevo Proyecto</button>
+    
+        <table class="table table-striped" id="tablaProyectos">
+            <thead>
+                <tr>
+                    <th>ClaProyecto</th>
+                    <th>NomProyecto</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+ </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalProyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal Proyecto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <div class="mb-3">
+                    <label class="form-label">Clave Proyecto:</label>
+                    <input type="number" class="form-control" id="ClaProyecto" placeholder="Clave"  autocomplete="off" disabled>
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Nombre Proyecto:</label>
+                    <input type="text" class="form-control" id="NomProyecto" placeholder="Nombre">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary boton-guardar-cambios-proyecto">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/index.js"></script>
+}
