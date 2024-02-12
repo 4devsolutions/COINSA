@@ -1,0 +1,19 @@
+﻿body {
+    
+}
+
+.tdAcciones {
+    display:inline-flex;
+}
+.tdAcciones button {
+    margin: 0 5px;
+}
+
+/*tr {
+    vertical-align: middle;
+}
+
+;bi{
+   margin: 0;
+   padding: 0;
+}*/

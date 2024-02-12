@@ -1,0 +1,22 @@
+﻿body {
+}
+
+.botonAccion {
+    
+    margin-right: 10px;
+}
+.tdOculta, .thOculta {
+    display: none;
+}
+.tdAcciones {
+    display: flex;
+    justify-content: space-between;
+}
+/*tr {
+    vertical-align: middle;
+}
+
+;bi{
+   margin: 0;
+   padding: 0;
+}*/

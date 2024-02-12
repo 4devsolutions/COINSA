@@ -1,13 +1,18 @@
+using NominaNF.Data.Contrato;
+using NominaNF.Data.Implementacion;
 using NominaNF.Models;
-using NominaNF.Repositorios.Contrato;
-using NominaNF.Repositorios.Implementacion;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddScoped<IGenericRepository<Proyecto>, ProyectoRepository>();
+builder.Services.AddScoped<IGenericData<Proyecto>, ProyectoData>();
+builder.Services.AddScoped<IGenericData<Usuario>, UsuarioData>();
+builder.Services.AddScoped<IPuestoCmbData<Puesto>, PuestoCmbData>();
+builder.Services.AddScoped<IProyectoCmbData<Proyecto>, ProyectoCmbData>();
+builder.Services.AddScoped<IUbicacionCmbData<Ubicacion>, UbicacionCmbData>();
+
 
 var app = builder.Build();
 

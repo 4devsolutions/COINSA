@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Usuario";
+}
+
+<div class="row justify-content-center">
+    <div class="col-10">
+
+        <div class="alert alert-info" role="alert">
+           Catalogo Usuario!
+        </div>
+
+        <button type="button" class="btn btn-success btn-sm boton-nuevo-Usuario">Nuevo Usuario</button>
+    
+        <table class="table table-striped" id="tablaUsuarios">
+            <thead>
+                <tr>
+                <th>Clave</th>
+                <th>Nombre</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th class="thOculta">ClaPuesto</th>
+                <th>Puesto</th>
+                <th class="thOculta">ClaProyecto</th>
+                <th>Proyecto</th>
+                <th class="thOculta">ClaUbicación</th>
+                <th>Ubicación</th>
+                <th>Baja</th>
+                <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+ </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <div class="mb-3">
+                    <label class="form-label">ClaveUsuario:</label>
+                    <input type="number" class="form-control" id="ClaUsuario" placeholder="Clave"  autocomplete="off" disabled>
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="NomUsuario" placeholder="Por favor capture el nombre de usuario" /> 
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Apellido Paterno:</label>
+                    <input type="text" class="form-control" id="ApellidoPaterno" placeholder="Por favor capture el apellido paterno">
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Apellido Materno:</label>
+                    <input type="text" class="form-control" id="ApellidoMaterno" placeholder="Por favor capture el apellido materno">
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Puesto:</label>
+                   <select id="puestoDropDown" class="form-control"></select>
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Proyecto:</label>
+                <select id="proyectoDropDown" class="form-control">
+                        <!-- Dropdown options will be populated dynamically -->
+                </select>   
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Ubicación:</label>
+                    <select id="ubicacionDropDown" class="form-control"></select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary boton-guardar-cambios-Usuario">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/usuario.js"></script>
+}
+@section Styles {
+    <link href="~/css/usuario.css" rel="stylesheet" />
+}

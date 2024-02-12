@@ -1,0 +1,9 @@
+# EditorConfig helps developers define and maintain consistent coding styles across IDEs and editors.
+# For more information about the EditorConfig project, see https://editorconfig.org
+
+# Top-most EditorConfig file
+root = true
+
+# Unix-style line endings
+[*]
+end_of_line = lf

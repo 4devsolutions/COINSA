@@ -4,7 +4,7 @@
 }
 
 function mostrarProyectos() {
-    fetch("/Proyecto/ListaProyectos")
+    fetch("/Proyecto/ObtieneProyectos")
     .then(response => {
         return response.ok ? response.json() : Promise.reject(response)
     })
@@ -17,9 +17,12 @@ function mostrarProyectos() {
                     $("<tr>").append(
                         $("<td>").text(Proyecto.claProyecto),
                         $("<td>").text(Proyecto.nomProyecto),
-                        $("<td>").append(
-                            $("<button>").addClass("btn btn-primary btn-sm boton-editar-proyecto").text("Editar").data("dataProyecto", Proyecto),
-                            $("<button>").addClass("btn btn-danger btn-sm ms-2 boton-eliminar-proyecto").text("Eliminar").data("dataProyecto", Proyecto)
+                        $("<td>").text(Proyecto.bajaLogica),
+                        $("<td>").addClass("tdAcciones").append(
+                            //$("<button>").addClass("btn btn-primary btn-sm boton-editar-usuario").text("Editar").data("dataUsuario", Usuario),
+                            //$("<button>").addClass("btn btn-danger btn-sm ms-2 boton-eliminar-usuario").text("Eliminar").data("dataUsuario", Usuario)
+                            $("<button>").addClass("btn-primary boton-editar-proyecto").append(`<i class="icon-editar bi bi-pencil"></i>`).data("dataProyecto", Proyecto),
+                            $("<button>").addClass("btn-danger boton-eliminar-proyecto").append(`<i class="bi bi-trash"></i>`).data("dataProyecto", Proyecto)
                         )
                     )
                 )
@@ -75,7 +78,7 @@ $(document).on("click", ".boton-guardar-cambios-proyecto", function () {
 
     if (modelo.ClaProyecto == 0) {
 
-        fetch("/Proyecto/Insertar", {
+        fetch("/Proyecto/AgregaProyecto", {
             method: "POST",
             headers: { "Content-Type": "application/json; charset=utf-8" },
             body: JSON.stringify(modelo)
@@ -97,7 +100,7 @@ $(document).on("click", ".boton-guardar-cambios-proyecto", function () {
 
     } else {
 
-        fetch("/Proyecto/Editar", {
+        fetch("/Proyecto/EditaProyecto", {
             method: "PUT",
             headers: { "Content-Type": "application/json; charset=utf-8" },
             body: JSON.stringify(modelo)
@@ -121,14 +124,19 @@ $(document).on("click", ".boton-guardar-cambios-proyecto", function () {
 
 })
 
-
 $(document).on("click", ".boton-eliminar-proyecto", function () {
 
+    
     const _proyecto = $(this).data("dataProyecto");
+
+    const modelo = {
+        ClaProyecto: _proyecto.claProyecto,
+        NomProyecto: _proyecto.nomProyecto
+    }
 
     Swal.fire({
         title: "Esta seguro?",
-        text: `Eliminar Proyecto "${_proyecto.NomProyecto}"`,
+        text: `Eliminar Proyecto "${_proyecto.nomProyecto}"`,
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -139,9 +147,15 @@ $(document).on("click", ".boton-eliminar-proyecto", function () {
 
         if (result.isConfirmed) {
 
-            fetch(`/Proyecto/Eliminar/?ClaProyecto=${_proyecto.ClaProyecto}`, {
-                method: "DELETE"
+            fetch("/Proyecto/EliminaProyecto", {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(modelo)
             })
+            //fetch(`/Proyecto/Eliminar/?ClaProyecto=${_proyecto.ClaProyecto}`, {
+            //    method: "DELETE"
+            //})
+
                 .then(response => {
                     return response.ok ? response.json() : Promise.reject(response)
                 })
