@@ -67,7 +67,7 @@ $(document).on("click", ".boton-nuevo-Usuario", function () {
 
 })
 
-$(document).on("click", ".boton-editar-Usuario", function () {
+$(document).on("click", ".boton-editar-usuario", function () {
 
     const _Usuario = $(this).data("dataUsuario");
 
@@ -85,7 +85,7 @@ $(document).on("click", ".boton-editar-Usuario", function () {
 })
 
 document.addEventListener("click", function (event) {
-    if (event.target.classList.contains("boton-guardar-cambios-Usuario")) {
+    if (event.target.classList.contains("boton-guardar-cambios-usuario")) {
 
         var puestoValue = document.getElementById("puestoDropDown").value;
         var proyectoValue = document.getElementById("proyectoDropDown").value;
@@ -151,7 +151,7 @@ document.addEventListener("click", function (event) {
     }
 })
 
-$(document).on("click", ".boton-eliminar-Usuario", function () {
+$(document).on("click", ".boton-eliminar-usuario", function () {
 
     
     const _Usuario = $(this).data("dataUsuario");
