@@ -74,7 +74,6 @@ $(document).on("click", ".boton-guardar-cambios-proyecto", function () {
         NomProyecto: $("#NomProyecto").val()
     }
 
-    console.log(modelo.ClaProyecto);
 
     if (modelo.ClaProyecto == 0) {
 
